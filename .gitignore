@@ -7,3 +7,7 @@
 /spec/reports/
 /tmp/
 .rspec
+*.gem
+*.rbc
+.config
+Gemfile.lock
