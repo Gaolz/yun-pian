@@ -7,7 +7,12 @@ module Yunpian
   # 国内短信单条发送接口
   def to(mobile, text)
     uri = URI('https://sms.yunpian.com/v2/sms/single_send.json')
-    res = Net::HTTP.post_form(uri, 'apikey' => APIKEY, 'mobile' => mobile, 'text' => text)
+    req = Net::HTTP::Post.new(uri)
+    req.set_form_data('apikey' => APIKEY, 'mobile' => mobile, 'text' => text)
+
+    res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+      http.request(req)
+    end
   end
   module_function :to
 
