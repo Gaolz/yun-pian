@@ -1,26 +1,36 @@
 require 'yunpian/version'
 require 'net/http'
+require 'json'
 
 module Yunpian
-  APIKEY = "23a126095757a111a73f0ed8d5cb5b31".freeze
+  extend self
 
-  # 国内短信单条发送接口
-  def to(mobile, text)
-    uri = URI('https://sms.yunpian.com/v2/sms/single_send.json')
-    req = Net::HTTP::Post.new(uri)
-    req.set_form_data('apikey' => APIKEY, 'mobile' => mobile, 'text' => text)
+  attr_accessor :apikey
 
-    res = Net::HTTP.start(uri.hostname, uri.port) do |http|
-      http.request(req)
-    end
+  SEND_URL = 'https://sms.yunpian.com/v2/sms/batch_send.json'
+
+  # 国内短信发送接口
+  #   1：准备参数 options(:apikey, :mobile, :message)
+  #   2：初始化 URI 对象
+  #   3：调用接口
+  #   4：解析返回的结果
+  def send(mobiles, message, options = {})
+    options[:apikey] ||= Yunpian.apikey
+    options.merge! { mobile: mobiles, text: message }
+
+    uri = URI SEND_URL
+    res = Net::HTTP.post_form(uri, options)
+
+    result res.body
   end
-  module_function :to
 
-  # 国内短信批量发送接口
-  def batch_to(mobiles, text)
-    uri = URI('https://sms.yunpian.com/v2/sms/batch_send.json')
-    res = Net::HTTP.post_form(uri, 'apikey' => APIKEY, 'mobile' => mobiles, 'text' => text)
+  private def result(body)
+    JSON.parse body
+  rescue JSON::ParserError => e
+    {
+      code: 502,
+      msg: '内容解析错误',
+      detail: e.to_s
+    }
   end
-  module_function :batch_to
-
 end
