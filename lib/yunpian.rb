@@ -16,7 +16,7 @@ module Yunpian
   #   4：解析返回的结果
   def send(mobiles, message, options = {})
     options[:apikey] ||= Yunpian.apikey
-    options.merge! { mobile: mobiles, text: message }
+    options.merge!({ mobile: mobiles, text: message })
 
     uri = URI SEND_URL
     res = Net::HTTP.post_form(uri, options)
