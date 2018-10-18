@@ -1,8 +1,8 @@
-require 'yunpian/version'
+require 'yun-pian/version'
 require 'net/http'
 require 'json'
 
-module Yunpian
+module YunPian
   extend self
 
   attr_accessor :apikey
@@ -15,7 +15,7 @@ module Yunpian
   #   3：调用接口
   #   4：解析返回的结果
   def send(mobiles, message, options = {})
-    options[:apikey] ||= Yunpian.apikey
+    options[:apikey] ||= YunPian.apikey
     options.merge!({ mobile: mobiles, text: message })
 
     uri = URI SEND_URL

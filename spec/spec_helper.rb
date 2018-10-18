@@ -1,7 +1,7 @@
 require 'bundler/setup'
 
 require 'webmock/rspec'
-require 'yunpian'
+require 'yun-pian'
 
 RSpec.configure do |config|
 end

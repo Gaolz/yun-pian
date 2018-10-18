@@ -1,11 +1,11 @@
-# Yunpian
+# YunPian
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'yunpian'
+gem 'yun-pian'
 ```
 
 And then execute:
@@ -14,21 +14,21 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install yunpian
+    $ gem install yun-pian
 
 ## Usage
 
 ## Config
 
 ```ruby
-Yunpian.api = 'apikey'
+YunPian.api = 'apikey'
 ```
 
 ## batch send
 ```ruby
-Yunpian.send('13112345678', 'Single send to user') # => { code: 0, msg: "OK", result: {...} }
+YunPian.send('13112345678', 'Single send to user') # => { code: 0, msg: "OK", result: {...} }
 
-Yunpian.send('13112345678,13412345678', 'Multiple send to users')
+YunPian.send('13112345678,13412345678', 'Multiple send to users')
 ```
 
 ## Development
@@ -39,7 +39,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/yunpian. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/yun-pian. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -47,4 +47,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Yunpian project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/yunpian/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the YunPian project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/yun-pian/blob/master/CODE_OF_CONDUCT.md).

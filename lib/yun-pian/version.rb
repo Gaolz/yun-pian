@@ -1,3 +1,3 @@
-module Yunpian
+module YunPian
   VERSION = "0.1.0"
 end

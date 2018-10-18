@@ -1,17 +1,17 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "yunpian/version"
+require "yun-pian/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "yunpian"
-  spec.version       = Yunpian::VERSION
+  spec.name          = "yun-pian"
+  spec.version       = YunPian::VERSION
   spec.authors       = ["glz"]
   spec.email         = ["glzztt@gmail.com"]
 
   spec.summary       = %q{Ruby SDK for https://www.yunpian.com/ }
   spec.description   = %q{Ruby SDK for https:://www.yunpian.com/v2 api}
-  spec.homepage      = "https://github.com/Gaolz/yunpian"
+  spec.homepage      = "https://github.com/Gaolz/yun-pian"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
